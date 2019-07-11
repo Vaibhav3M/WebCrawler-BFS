@@ -1,4 +1,4 @@
-package Model;
+import Model.BFSCrawler;
 
 public class App {
 	
