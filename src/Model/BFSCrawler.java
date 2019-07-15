@@ -27,16 +27,20 @@ public class BFSCrawler {
 		this.queue.add(root);
 		
 		this.discoverWebsiteList.add(root);
-		
+		String result = "";
+
+
 		while(!queue.isEmpty()) {
 			
 			String v = this.queue.remove();
 							
 			String rawhtml = readURL(v);
-			
+
 			String regexp = "http://(\\w+\\.)*(\\w+)";
 			Pattern pattern = Pattern.compile(regexp);
 			Matcher matcher = pattern.matcher(rawhtml);
+
+
 			
 			while(matcher.find()) {
 				
@@ -44,16 +48,34 @@ public class BFSCrawler {
 				
 				if(!discoverWebsiteList.contains(actualURL)) {
 					discoverWebsiteList.add(actualURL);
+					result += (actualURL + ", ");
 					System.out.println(actualURL);
 					queue.add(actualURL);
 					
 				}	
 			}
+
+			String regexp2 = "https://(\\w+\\.)*(\\w+)";
+			Pattern pattern2 = Pattern.compile(regexp2);
+			Matcher matcher2 = pattern2.matcher(rawhtml);
+
+			while(matcher2.find()) {
+
+				String actualURL = matcher2.group();
+
+				if(!discoverWebsiteList.contains(actualURL)) {
+					discoverWebsiteList.add(actualURL);
+					result += (actualURL + ", ");
+					System.out.println(actualURL);
+					queue.add(actualURL);
+
+				}
+			}
 			
 		}
 		
 		
-		return "";
+		return result;
 	}
 	
 	private String readURL(String v) {

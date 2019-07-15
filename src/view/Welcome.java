@@ -22,23 +22,26 @@ public class Welcome extends Application {
 
         TextArea welcomeText = new TextArea();
         welcomeText.setText("Enter a valid URL");
+        welcomeText.setPrefWidth(500);
+        welcomeText.setPrefHeight(100);
         welcomeText.setEditable(false);
 
         TextField url = new TextField();
-
+        TextArea displayResult = new TextArea();
 
         Button go = new Button("GO");
         go.setOnMouseClicked(event -> {
             BFSCrawler crawler = new BFSCrawler();
             String urlString = formatURL(url.getText());
 
-            System.out.println(urlString);
-            crawler.callCrawler(urlString);
+            String result = crawler.callCrawler(urlString);
+
+            displayResult.setText(result);
         });
 
-        VBox vbox = new VBox();
+        VBox vbox = new VBox(10);
 
-        vbox.getChildren().addAll(welcomeText,url,go);
+        vbox.getChildren().addAll(welcomeText,url,go,displayResult);
 
         Scene scene  = new Scene(vbox,500,500);
 
