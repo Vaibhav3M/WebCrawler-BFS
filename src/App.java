@@ -1,4 +1,4 @@
-package Model;
+import Model.BFSCrawler;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

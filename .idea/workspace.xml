@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1f3b2de-d4ea-4680-94c2-583e2a7b0086" name="Default Changelist" comment="">
+
       <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
@@ -73,6 +74,7 @@
             <path>
               <item name="WebCrawler-BFS" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebCrawler-BFS" type="462c0819:PsiDirectoryNode" />
+
               <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
